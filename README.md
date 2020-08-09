@@ -1,5 +1,7 @@
 # MuSTA: Multi-Sample Transcript Assembly
 
+[![Documentation Status](https://readthedocs.org/projects/musta/badge/?version=latest)](https://musta.readthedocs.io/en/latest/?badge=latest)
+
 This is a pipeline and associated R codes which take long-read isoform sequencing results as input and genarate an assembled transcriptome.
 
 You can see the documents and the quick-start guides at https://musta.readthedocs.io.
