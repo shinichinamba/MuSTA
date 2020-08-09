@@ -1,0 +1,99 @@
+---
+title: "Tutorial"
+author: "S Namba"
+date: "`r Sys.Date()`"
+output:
+  md_document: 
+    variant: markdown_github
+---
+
+# Tutorial
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "#>")
+knitr::opts_knit$set(root.dir = "~/long_read/MuSTA")
+library(tidyverse)
+```
+
+## Check the version
+
+```{bash version}
+./MuSTA.R -v
+```
+
+
+## Dry-run
+
+In order to check your config file before actually processing it, the `--dry-run` option is useful.
+
+```{bash dry run, eval = FALSE}
+./MuSTA.R \
+  --dry-run \
+  --input test/input.csv \
+  --gtf test/reference/test.ref.gtf \
+  --genome test/reference/chr16_18_head.fa
+```
+
+This command returns 4 types of information.
+
+1. Valid arguments
+
+2. Session information
+
+3. Paths to intermediate files to be generated.
+
+4. The generated workflow based on the options
+
+
+In addition, you can find 'plan_pre_run.pdf' in your working directory, which visualizes the generated workflow.
+
+![plan_pre_run](../images/plan_pre_run.png)
+
+
+## Test run
+
+You can apply MuSTA to a test data by
+
+```{bash test run, eval = FALSE}
+./MuSTA.R \
+  --input test/input.csv \
+  --gtf test/reference/test.ref.gtf \
+  --genome test/reference/chr16_18_head.fa \
+  --output test/test_output
+```
+
+This command creates a directory named ‘test/test_output’ containing 8 sub-directories
+
+    output:
+        result
+        report
+        script
+        log
+        sample
+        merge
+        fusion
+        genome
+
+By checking 'report/plan_post_run.pdf', you can find that all procedures have been done.
+
+![plan_post_run](../images/plan_post_run.png)
+
+All of the important outputs can be found in the 'result' directory.
+The main outputs have the prefix supplied by the `--prefix` option (in this tutorial, the prefix is 'musta').
+
+```{r result}
+# The assembled transcriptome
+## fasta
+print(Biostrings::readDNAStringSet("test/test_output/result/musta.fa"))
+## gtf
+knitr::kable(as.data.frame(rtracklayer::import("test/test_output/result/musta.gtf")))
+## PBcount: the number of uniquely associated full-length non-chimeric (FLNC) reads
+knitr::kable(readr::read_tsv("test/test_output/result/musta.pbcount.txt", col_types = readr::cols(.default = readr::col_character())))
+## (Short-read) expression: Transcript-per-Million (TPM) calclated by salmon
+knitr::kable(read.table("test/test_output/result/musta.salmon.tpm.txt", header = TRUE, sep = "\t"))
+```
+
+You can conduct downstream analyses to investigate differentially expressed gene, differentially transcript usage and so on.
+Most of the popular packages such as {DESeq2}, {DEXSeq}, and {SUPPA2} are available by setting the assembled transcriptome as reference. 
+Some users might find [tappas](https://app.tappas.org/) is useful for these purposes if they would like to conduct a number of analyses on GUI.
+The transcriptome can be imported to tappas with the aid of [IsoAnnotLite](https://isoannot.tappas.org/isoannot-lite/).

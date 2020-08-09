@@ -1,0 +1,12 @@
+cluster_id,read_id,read_type
+transcript/0,Read=0;|read/f1p0;length=1834bp;startpos=0;transcript=DAMMY_AP005530.1_AS.tx;01,FL
+transcript/0,Read=3;|read/f1p0;length=1806bp;startpos=0;transcript=DAMMY_AP005530.1_AS.tx;02,FL
+transcript/0,Read=8;|read/f1p0;length=1782bp;startpos=41;transcript=DAMMY_AP005530.1_AS.tx;03,FL
+transcript/0,Read=9;|read/f1p0;length=1757bp;startpos=50;transcript=DAMMY_AP005530.1_AS.tx;04,FL
+transcript/1,Read=2;|read/f1p0;length=1667bp;startpos=5;transcript=ENST00000513886.1;05,FL
+transcript/1,Read=4;|read/f1p0;length=1662bp;startpos=0;transcript=ENST00000513886.1;06,FL
+transcript/2,Read=7;|read/f1p0;length=926bp;startpos=0;transcript=ENST00000572573.1;07,FL
+transcript/2,Read=1;|read/f1p0;length=923bp;startpos=0;transcript=ENST00000572573.1;08,FL
+transcript/2,Read=5;|read/f1p0;length=922bp;startpos=0;transcript=ENST00000572573.1;09,FL
+transcript/3,Read=6;|read/f1p0;length=248bp;startpos=323;transcript=ENST00000430178.2;10,FL
+transcript/4,Read=X;|read/f1p0;length=XXXbp;startpos=XXX;transcript=DAMMY_AP005530.1_AS_ENST00000513886.1_ENST00000575820.1;10,FL

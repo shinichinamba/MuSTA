@@ -1,0 +1,13 @@
+{
+    "salmon_version": "1.3.0",
+    "index": "/media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/test_output/merge/salmon/post_sqanti_index",
+    "libType": "A",
+    "mates1": "/media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/short_read/sample_02_1.shuffled.fasta",
+    "mates2": "/media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/short_read/sample_02_2.shuffled.fasta",
+    "threads": "10",
+    "gcBias": [],
+    "seqBias": [],
+    "validateMappings": [],
+    "output": "/media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/test_output/samples/sample2/musta.salmon",
+    "auxDir": "aux_info"
+}

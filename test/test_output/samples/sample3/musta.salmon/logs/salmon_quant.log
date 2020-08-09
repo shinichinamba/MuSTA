@@ -1,0 +1,49 @@
+[2020-08-09 15:05:39.946] [jointLog] [info] setting maxHashResizeThreads to 10
+[2020-08-09 15:05:39.946] [jointLog] [info] Fragment incompatibility prior below threshold.  Incompatible fragments will be ignored.
+[2020-08-09 15:05:39.946] [jointLog] [info] Usage of --validateMappings implies use of minScoreFraction. Since not explicitly specified, it is being set to 0.65
+[2020-08-09 15:05:39.946] [jointLog] [info] Usage of --validateMappings implies a default consensus slack of 0.2. Setting consensusSlack to 0.35.
+[2020-08-09 15:05:39.946] [jointLog] [info] parsing read library format
+[2020-08-09 15:05:39.946] [jointLog] [info] There is 1 library.
+[2020-08-09 15:05:40.001] [jointLog] [info] Loading pufferfish index
+[2020-08-09 15:05:40.001] [jointLog] [info] Loading dense pufferfish index.
+[2020-08-09 15:05:40.001] [jointLog] [info] done
+[2020-08-09 15:05:40.001] [jointLog] [info] Index contained 8 targets
+[2020-08-09 15:05:40.001] [jointLog] [info] Number of decoys : 0
+[2020-08-09 15:05:40.047] [jointLog] [info] Computed 8 rich equivalence classes for further processing
+[2020-08-09 15:05:40.047] [jointLog] [info] Counted 25 total reads in the equivalence classes 
+[2020-08-09 15:05:40.047] [fileLog] [info] 
+At end of round 0
+==================
+Observed 25 total fragments (25 in most recent round)
+
+[2020-08-09 15:05:40.048] [jointLog] [info] Number of mappings discarded because of alignment score : 7
+[2020-08-09 15:05:40.048] [jointLog] [info] Number of fragments entirely discarded because of alignment score : 0
+[2020-08-09 15:05:40.048] [jointLog] [info] Number of fragments discarded because they are best-mapped to decoys : 0
+[2020-08-09 15:05:40.048] [jointLog] [info] Number of fragments discarded because they have only dovetail (discordant) mappings to valid targets : 0
+[2020-08-09 15:05:40.048] [jointLog] [warning] Only 25 fragments were mapped, but the number of burn-in fragments was set to 5000000.
+The effective lengths have been computed using the observed mappings.
+
+[2020-08-09 15:05:40.048] [jointLog] [info] Mapping rate = 100%
+
+[2020-08-09 15:05:40.048] [jointLog] [info] finished quantifyLibrary()
+[2020-08-09 15:05:40.048] [jointLog] [info] Starting optimizer
+[2020-08-09 15:05:40.049] [jointLog] [info] Marked 0 weighted equivalence classes as degenerate
+[2020-08-09 15:05:40.049] [jointLog] [info] iteration = 0 | max rel diff. = 2.125
+[2020-08-09 15:05:40.049] [jointLog] [info] iteration 8, adjusting effective lengths to account for biases
+[2020-08-09 15:05:40.050] [jointLog] [info] Computed expected counts (for bias correction)
+[2020-08-09 15:05:40.050] [jointLog] [info] processed bias for 12.5% of the transcripts
+[2020-08-09 15:05:40.050] [jointLog] [info] processed bias for 12.5% of the transcripts
+[2020-08-09 15:05:40.050] [jointLog] [info] processed bias for 12.5% of the transcripts
+[2020-08-09 15:05:40.050] [jointLog] [info] processed bias for 12.5% of the transcripts
+[2020-08-09 15:05:40.050] [jointLog] [info] processed bias for 25.0% of the transcripts
+[2020-08-09 15:05:40.050] [jointLog] [info] processed bias for 50.0% of the transcripts
+[2020-08-09 15:05:40.050] [jointLog] [info] processed bias for 50.0% of the transcripts
+[2020-08-09 15:05:40.051] [jointLog] [info] processed bias for 100.0% of the transcripts
+[2020-08-09 15:05:40.051] [jointLog] [info] iteration = 100 | max rel diff. = 1.98494e-16
+[2020-08-09 15:05:40.051] [jointLog] [info] Finished optimizer
+[2020-08-09 15:05:40.051] [jointLog] [info] writing output 
+
+[2020-08-09 15:05:40.051] [jointLog] [warning] NOTE: Read Lib [[ /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/short_read/sample_03_1.shuffled.fasta, /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/short_read/sample_03_2.shuffled.fasta]] :
+
+Detected a *potential* strand bias > 1% in an unstranded protocol check the file: /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/test_output/samples/sample3/musta.salmon/lib_format_counts.json for details
+

@@ -1,0 +1,6 @@
+transcript/0	1801	0	1801	-	18	20000	11199	13000	1801	1801	60	NM:i:0	ms:i:1801	AS:i:1801	nn:i:0	ts:A:+	tp:A:P	cm:i:608	s1:i:1798	s2:i:0	dv:f:0.0001	cg:Z:1801M	cs:Z::1801
+transcript/1	1652	0	1652	+	16	20000	11554	14090	1652	1652	60	NM:i:0	ms:i:1652	AS:i:1586	nn:i:0	ts:A:+	tp:A:P	cm:i:542	s1:i:1629	s2:i:0	dv:f:0.0009	cg:Z:354M385N109M499N1189M	cs:Z::354~gt385ag:109~gt499ag:1189
+transcript/2	700	0	700	+	18	20000	11102	15822	699	700	60	NM:i:1	ms:i:696	AS:i:664	nn:i:0	ts:A:+	tp:A:P	cm:i:216	s1:i:683	s2:i:43	dv:f:0.0033	cg:Z:142M1I351M4021N206M	cs:Z::142+c:351~gt4021ag:206
+transcript/3	813	0	813	+	16	20000	13277	14090	810	816	60	NM:i:6	ms:i:792	AS:i:792	nn:i:0	ts:A:+	tp:A:P	cm:i:239	s1:i:779	s2:i:0	dv:f:0.0071	cg:Z:103M1D12M1I35M1D37M1D35M1I7M1I581M	cs:Z::103-t:12+g:35-t:37-a:35+g:7+g:581
+transcript/4	650	0	445	+	18	20000	11262	15728	445	445	60	NM:i:0	ms:i:445	AS:i:413	nn:i:0	ts:A:+	tp:A:P	cm:i:137	s1:i:432	s2:i:0	dv:f:0.0019	cg:Z:333M4021N112M	cs:Z::333~gt4021ag:112
+transcript/4	650	445	650	+	16	20000	11650	11855	205	205	60	NM:i:0	ms:i:205	AS:i:205	nn:i:0	ts:A:+	tp:A:P	cm:i:61	s1:i:200	s2:i:0	dv:f:0.0022	cg:Z:205M	cs:Z::205

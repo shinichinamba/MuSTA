@@ -1,0 +1,6 @@
+16	.	exon	11555	11908	.	+	.	gene_id "PB.1"; transcript_id "PB.1.1";
+16	.	exon	12294	12402	.	+	.	gene_id "PB.1"; transcript_id "PB.1.1";
+16	.	exon	12902	14090	.	+	.	gene_id "PB.1"; transcript_id "PB.1.1";
+18	.	exon	11103	11595	.	+	.	gene_id "PB.2"; transcript_id "PB.2.1";
+18	.	exon	15617	15822	.	+	.	gene_id "PB.2"; transcript_id "PB.2.1";
+18	.	exon	11200	13000	.	-	.	gene_id "PB.3"; transcript_id "PB.3.1";

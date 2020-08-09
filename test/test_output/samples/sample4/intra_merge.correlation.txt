@@ -1,0 +1,5 @@
+gene_id	transcript_id	seq_id	type
+PB.1	PB.1.1	transcript/1	intronic_match_include
+PB.1	PB.1.2	transcript/3	intronic_match_include
+PB.2	PB.2.1	transcript/2	intronic_match_include
+PB.3	PB.3.1	transcript/0	monoex_match

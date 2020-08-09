@@ -1,0 +1,11 @@
+seq_id	chr	type	start	end	ref	alt	tx_start	tx_end	tx_strand	sample
+transcript/1	16	~	11908	12293			11554	14090	+	
+transcript/1	16	~	12402	12901			11554	14090	+	
+transcript/2	18	+	11244	11244		c	11102	15822	+	
+transcript/2	18	~	11595	15616			11102	15822	+	
+transcript/3	16	-	13380	13381	t		13277	14090	+	
+transcript/3	16	+	13393	13393		g	13277	14090	+	
+transcript/3	16	-	13428	13429	t		13277	14090	+	
+transcript/3	16	-	13466	13467	a		13277	14090	+	
+transcript/3	16	+	13502	13502		g	13277	14090	+	
+transcript/3	16	+	13509	13509		g	13277	14090	+	

@@ -1,0 +1,5 @@
+samples	polished_hq	lordec_hq	minimap2_hq_paf	qfilt_hq_paf	intra_merge
+sample1	145	11	11	11	7
+sample2	101	6	6	6	4
+sample3	78	5	5	5	3
+sample4	90	5	5	5	4

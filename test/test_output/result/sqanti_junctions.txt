@@ -1,0 +1,13 @@
+isoform	chrom	strand	junction_number	genomic_start_coord	genomic_end_coord	transcript_coord	junction_category	start_site_category	end_site_category	diff_to_Ref_start_site	diff_to_Ref_end_site	bite_junction	splice_site	canonical	RTS_junction	indel_near_junct	sample_with_cov	total_coverage
+PB.2.2	18	+	junction_1	11596	15616	493	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	NA	NA	NA
+PB.2.1	18	+	junction_1	11596	13151	405	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	NA	NA	NA
+PB.2.1	18	+	junction_2	13355	15616	608	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	NA	NA	NA
+PB.1.2	16	+	junction_1	11909	12293	354	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	NA	NA	NA
+PB.1.2	16	+	junction_2	12403	12901	463	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	NA	NA	NA
+PB.1.1	16	+	junction_1	11909	12293	48	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	NA	NA	NA
+PB.1.1	16	+	junction_2	12379	12662	133	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	NA	NA	NA
+PB.1.1	16	+	junction_3	12734	12905	204	known	known	known	0	0	FALSE	GCAG	canonical	FALSE	NA	NA	NA
+PB.1.1	16	+	junction_4	13074	13152	372	novel	novel	novel	-3	3	TRUE	CTCT	non_canonical	FALSE	NA	NA	NA
+PB.1.3	16	+	junction_1	13074	13152	49	novel	novel	novel	-3	3	TRUE	CTCT	non_canonical	FALSE	NA	NA	NA
+PB.4.1	18	-	junction_1	14654	14850	108	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	NA	NA	NA
+PB.4.2	18	-	junction_1	14654	16855	43	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	NA	NA	NA

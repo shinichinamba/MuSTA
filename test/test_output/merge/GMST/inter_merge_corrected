@@ -1,0 +1,64 @@
+GeneMark.hmm PROKARYOTIC (Version 3.20)
+Date: Sun Aug  9 15:05:22 2020
+Sequence file name: /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/test_output/merge/inter_merge_corrected.fasta
+Model file name: /home/sinnhazime/software/sqanti/utilities/gmst/MetaGeneMark_v1.mod
+RBS: false
+
+Model information: Heuristic_model_for_genetic_code_11_and_GC_56
+
+FASTA definition line: PB.1.2 gene=PB.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: Heuristic_model_for_genetic_code_11_and_GC_58
+
+FASTA definition line: PB.1.1 gene=PB.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: Heuristic_model_for_genetic_code_11_and_GC_58
+
+FASTA definition line: PB.1.3 gene=PB.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: Heuristic_model_for_genetic_code_11_and_GC_54
+
+FASTA definition line: PB.2.2 gene=PB.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: Heuristic_model_for_genetic_code_11_and_GC_50
+
+FASTA definition line: PB.2.1 gene=PB.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: Heuristic_model_for_genetic_code_11_and_GC_64
+
+FASTA definition line: PB.3.1 gene=PB.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: Heuristic_model_for_genetic_code_11_and_GC_34
+
+FASTA definition line: PB.4.1 gene=PB.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    1        +          <1          72           72        1
+
+Model information: Heuristic_model_for_genetic_code_11_and_GC_38
+
+FASTA definition line: PB.4.2 gene=PB.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    2        +          <2         151          150        2
+

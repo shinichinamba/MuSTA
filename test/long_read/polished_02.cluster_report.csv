@@ -1,0 +1,14 @@
+cluster_id,read_id,read_type
+transcript/0,Read=7;|read/f1p0;length=1852bp;startpos=0;transcript=DAMMY_AP005530.1_AS.tx;01,FL
+transcript/0,Read=0;|read/f1p0;length=1831bp;startpos=0;transcript=DAMMY_AP005530.1_AS.tx;02,FL
+transcript/0,Read=4;|read/f1p0;length=1830bp;startpos=0;transcript=DAMMY_AP005530.1_AS.tx;03,nonFL
+transcript/0,Read=8;|read/f1p0;length=1824bp;startpos=0;transcript=DAMMY_AP005530.1_AS.tx;04,FL
+transcript/1,Read=1;|read/f1p0;length=1678bp;startpos=0;transcript=ENST00000513886.1;05,FL
+transcript/1,Read=5;|read/f1p0;length=1676bp;startpos=0;transcript=ENST00000513886.1;06,nonFL
+transcript/1,Read=9;|read/f1p0;length=1620bp;startpos=41;transcript=ENST00000513886.1;07,FL
+transcript/2,Read=3;|read/f1p0;length=942bp;startpos=2;transcript=ENST00000572573.1;08,FL
+transcript/2,Read=2;|read/f1p0;length=930bp;startpos=0;transcript=ENST00000572573.1;09,FL
+transcript/3,Read=48;|read/f1p0;length=567bp;startpos=0;transcript=ENST00000572608.1;10,FL
+transcript/3,Read=47;|read/f1p0;length=567bp;startpos=0;transcript=ENST00000572608.1;11,FL
+transcript/4,Read=6;|read/f1p0;length=1688bp;startpos=154;transcript=DAMMY_AP005530.1_AS.tx;12,FL
+transcript/5,Read=6;|read/f1p0;length=567bp;startpos=0;transcript=ENST00000572608.1;13,FL

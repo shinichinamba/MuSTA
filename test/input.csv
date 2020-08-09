@@ -1,0 +1,5 @@
+sample, long_read_hq, cluster_report, short_read_1, short_read_2
+sample1, test/long_read/polished_01.fasta, test/long_read/polished_01.cluster_report.csv, test/short_read/sample_01_1.shuffled.fasta, test/short_read/sample_01_2.shuffled.fasta
+sample2, test/long_read/polished_02.fasta, test/long_read/polished_02.cluster_report.csv, test/short_read/sample_02_1.shuffled.fasta, test/short_read/sample_02_2.shuffled.fasta
+sample3, test/long_read/polished_03.fasta, test/long_read/polished_03.cluster_report.csv, test/short_read/sample_03_1.shuffled.fasta, test/short_read/sample_03_2.shuffled.fasta
+sample4, test/long_read/polished_04.fasta, test/long_read/polished_04.cluster_report.csv, test/short_read/sample_04_1.shuffled.fasta, test/short_read/sample_04_2.shuffled.fasta

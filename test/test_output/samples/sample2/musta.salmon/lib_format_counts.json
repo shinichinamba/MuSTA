@@ -1,0 +1,22 @@
+{
+    "read_files": "[ /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/short_read/sample_02_1.shuffled.fasta, /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/short_read/sample_02_2.shuffled.fasta]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 25,
+    "num_assigned_fragments": 25,
+    "num_frags_with_concordant_consistent_mappings": 26,
+    "num_frags_with_inconsistent_or_orphan_mappings": 0,
+    "strand_mapping_bias": 0.5,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 13,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 13,
+    "SF": 0,
+    "SR": 0,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

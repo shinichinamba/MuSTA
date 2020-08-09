@@ -1,0 +1,5 @@
+pbid	count_fl	count_nfl	count_nfl_amb	norm_fl	norm_nfl	norm_nfl_amb
+PB.1.2	2	0	0	0	0	0
+PB.2.1	2	0	0	0	0	0
+PB.3.1	4	0	0	0	0	0
+PB.4.1	3	0	0	0	0	0

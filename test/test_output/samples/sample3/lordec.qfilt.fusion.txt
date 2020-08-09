@@ -1,0 +1,3 @@
+seq_id	query_length	query_start	query_end	strand	chr	start	end	cs
+transcript/4	650	0	445	+	18	11262	15728	333~gt4021ag:112
+transcript/4	650	445	650	+	16	11650	11855	205

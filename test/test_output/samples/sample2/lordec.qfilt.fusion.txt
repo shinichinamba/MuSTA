@@ -1,0 +1,1 @@
+seq_id	query_length	query_start	query_end	strand	chr	start	end	cs

@@ -1,0 +1,4 @@
+seq_id	query_length	query_start	query_end	strand	chr	start	end	cs
+transcript/4	1796	0	757	-	18	11262	12019	757
+transcript/4	1796	757	1438	+	16	13216	13896	296+g:384
+transcript/4	1796	1438	1796	+	18	11442	15821	153~gt4021ag:205

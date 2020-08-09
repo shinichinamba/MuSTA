@@ -1,0 +1,56 @@
+
+
+
+-------------------------------------------------
+start time            : Sun Aug  9 15:05:44 2020
+working directory     : /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/test_output/merge/GMST
+command line          : /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/test_output/merge/musta_corrected.fasta -faa --strand direct --fnn --output musta_corrected
+output file with predictions : musta_corrected
+input sequence        : /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/test_output/merge/musta_corrected.fasta
+number of bins        : 0
+filter                : 1
+strand                : direct
+markov chain order    : cod = 4, non = 2
+genetic code          : 1
+search for motif      : 1
+motif width           : 12
+prestart length       : 6
+fixed motif position  : 1
+off overlap           : 1
+identity threshold    : 0.99
+maximum iteration     : 10
+gene overlap off      : 1
+strand to predict on  : direct
+GeneMarkS parameters  : /home/sinnhazime/software/sqanti/utilities/gmst/par_1.default
+initial hmm model     : 
+output format         : LST
+output nucleotides    : 1
+output proteins       : 1
+gibbs_version         : 3
+
+         run starts here:
+prepare sequence
+/home/sinnhazime/software/sqanti/utilities/gmst/probuild --par /home/sinnhazime/software/sqanti/utilities/gmst/par_1.default --clean_join sequence --seq /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/test_output/merge/musta_corrected.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 8 2
+All letters - 6664   3502
+Unambiguous letters - 6664 3452
+A - 1510 617
+C - 1888 1102
+G - 1761 968
+T - 1505 765
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+predict genes using heuristic
+/home/sinnhazime/software/sqanti/utilities/gmst/gmhmmp -p 0 -s d  -b  -A musta_corrected.faa  -D musta_corrected.fnn  -m /home/sinnhazime/software/sqanti/utilities/gmst/MetaGeneMark_v1.mod -o musta_corrected  /media/sinnhazime/HHD/pavilion/long_read/MuSTA/test/test_output/merge/musta_corrected.fasta
+system call done
+rm -f sequence with_seq.out
+system call done
+End: Sun Aug  9 15:05:44 2020
+

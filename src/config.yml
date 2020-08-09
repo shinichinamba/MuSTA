@@ -1,0 +1,78 @@
+# Que requirements of sub-processes. This config file is only valid in SHIROKANE super computer.
+default:
+  slot: 1
+  memory: 5.3
+  ljob: FALSE
+
+fasta2BSgenome:
+  # original
+  memory: 16
+lordec_build:
+  # run {lordec-build-SR-graph}
+  slot: 8
+  memory: 16
+lordec: 
+  # run {lordec-correct}
+  slot: 8
+  memory: 16
+minimap2:
+  # run {minimap2}
+  slot: 3
+  memory: 32
+qual_filter:
+  # original
+  memory: 32
+samtools:
+  # run {samtools sort} and {samtools index}
+  slot: 8
+  memory: 5
+intra_merge:
+  # original
+  slot: 8
+  memory: 14
+inter_merge:
+  # original
+  slot: 8
+  memory: 15
+gtf2fasta:
+  # original
+  memory: 5
+salmon_index:
+  # run {salmon index}
+  slot: 2
+  memory: 60
+salmon_quant:
+  # run {salmon quant}
+  slot: 10
+  memory: 10
+merge_salmon:
+  # original
+  memory: 15
+sqanti:
+  # run {sqanti_filter.py}, {sqanti_qc.py}, and original codes
+  memory: 46
+  ljob: TRUE
+filter_variant:
+  # original
+  slot: 3
+  memory: 40
+link_original_range:
+  # original
+  memory: 40
+fusion_bind:
+  # original
+  memory: 20
+fusion_parse:
+  # original
+  slot: 10
+  memory: 10
+fusion_sqanti: 
+  # run {sqanti_qc.py}
+  memory: 46
+fusion_summary:
+  # original
+  memory: 16
+report_number:
+  # original
+  slot: 11
+  memory: 8

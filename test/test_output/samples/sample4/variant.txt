@@ -1,0 +1,25 @@
+seq_id	chr	type	start	end	ref	alt	tx_start	tx_end	tx_strand	sample
+transcript/1	16	+	11626	11626		t	11554	14090	+	
+transcript/1	16	~	11908	12293			11554	14090	+	
+transcript/1	16	+	12347	12347		g	11554	14090	+	
+transcript/1	16	+	12376	12376		t	11554	14090	+	
+transcript/1	16	~	12402	12901			11554	14090	+	
+transcript/1	16	+	12910	12910		c	11554	14090	+	
+transcript/1	16	+	12932	12932		g	11554	14090	+	
+transcript/1	16	+	13395	13395		g	11554	14090	+	
+transcript/1	16	+	13437	13437		t	11554	14090	+	
+transcript/1	16	+	13580	13580		t	11554	14090	+	
+transcript/1	16	+	13588	13588		g	11554	14090	+	
+transcript/1	16	+	13660	13660		c	11554	14090	+	
+transcript/1	16	+	13690	13690		a	11554	14090	+	
+transcript/1	16	+	13739	13739		t	11554	14090	+	
+transcript/1	16	+	13758	13758		g	11554	14090	+	
+transcript/1	16	+	13813	13813		g	11554	14090	+	
+transcript/1	16	+	13873	13873		a	11554	14090	+	
+transcript/1	16	+	13985	13985		g	11554	14090	+	
+transcript/1	16	+	14000	14000		t	11554	14090	+	
+transcript/1	16	+	14035	14035		g	11554	14090	+	
+transcript/1	16	+	14047	14047		c	11554	14090	+	
+transcript/2	18	~	11595	13151			11190	15928	+	
+transcript/2	18	~	13354	15616			11190	15928	+	
+transcript/3	16	~	13073	13152			13024	13351	+	
