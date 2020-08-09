@@ -93,7 +93,7 @@ knitr::kable(readr::read_tsv("test/test_output/result/musta.pbcount.txt", col_ty
 knitr::kable(read.table("test/test_output/result/musta.salmon.tpm.txt", header = TRUE, sep = "\t"))
 ```
 
-You can conduct downstream analyses to investigate differentially expressed gene, differentially transcript usage and so on.
+You can conduct downstream analyses to investigate differentially expressed gene, differential transcript usage and so on.
 Most of the popular packages such as {DESeq2}, {DEXSeq}, and {SUPPA2} are available by setting the assembled transcriptome as reference. 
 Some users might find [tappas](https://app.tappas.org/) is useful for these purposes if they would like to conduct a number of analyses on GUI.
 The transcriptome can be imported to tappas with the aid of [IsoAnnotLite](https://isoannot.tappas.org/isoannot-lite/).

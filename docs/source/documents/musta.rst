@@ -10,10 +10,10 @@ MuSTA (Multi-Sample Transcriptome Assembly) is a pipeline for genarating an asse
 .. image:: ../images/Fig1_MuSTA_schema.png
    :align: left
 
-By merging IsoSeq reads which were considered to be derived from one transcript, MuSTA provides a catalog of non-redundant transcripts according to each sample, and subsequently merged them in all samples.
+By merging IsoSeq reads which were considered to be derived from one transcript, MuSTA provides a catalog of non-redundant transcripts according to each sample, and subsequently merge them in all samples.
 This procedure is followed by `SQANTI <https://github.com/ConesaLab/SQANTI>`_ filtering, which removes potential artifact transcripts by a random forest algorithm, eventually creating cohort-wide transcriptome.
 
-MuSTA enables to compare the number of uniquely associated full-length non-chimeric reads, which we refer as PBcount, between samples. In addition, alignment of short-reads to the created transcriptome enables to estimate gene expression just as conventional analyses, and to compare group wide expression such as differential gene expression (DGE) and DTU in your downstream analysis.
+MuSTA enables the comparison of the number of uniquely associated full-length non-chimeric reads, which we refer as PBcount, between samples. In addition, alignment of short-reads to the created transcriptome enables the estimation of gene expression just as conventional analyses, and to compare group wide expression such as differential gene expression (DGE) and DTU in your downstream analysis.
 
 It was originally developed and optimized for IsoSeq cluster or polished reads (Pacific Biosciences), but its libraries can be individually applied for other long-read sequencing like Oxford Nanopore Technologies.
 
@@ -88,12 +88,12 @@ plan_post_run.pdf
     An image representing the MuSTA workflow, which is generated *after* running it.
 
 .. note::
-    All of the workflow has been done if you find `report/plan_post_run.pdf` in your output directory.
-    It is recommended to additionally check whether all targets in `report/plan_post_run.pdf` have the 'up-to-date' status.
+    All of the workflow should be completed if you find `report/plan_post_run.pdf` in your output directory.
+    It is recommended to additionally check whether the information in `report/plan_post_run.pdf` is up-to-date.
 
 .. note::
     All the other intermediate files except for some important ones (written with an :red:`asterisk` below) will be removed unless you activate `--keep` option.
-    The format of intermediate files without an :red:`asterisk` can be changed in the future updates.
+    The format of intermediate files without an :red:`asterisk` might be changed in the future updates.
 
 
 script

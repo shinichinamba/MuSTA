@@ -1,11 +1,11 @@
 # Installation
 
-Our GitHub repogitory can be found [here](https://github.com/sinnhazime/MuSTA) .
+Our GitHub repogitory can be found [here](https://github.com/shinichinamba/MuSTA).
 
 You can obtain MuSTA by typing
 
 ```
-git clone https://github.com/sinnhazime/MuSTA.git
+git clone https://github.com/shinichinamba/MuSTA.git
 ```
 
 
@@ -44,14 +44,14 @@ However, the MuSTA pipeline utilizes several external softwares, and you need to
 
 ## Inform MuSTA of the paths to external softwares
 
-MuSTA calls several external softwares listed above.
+MuSTA uses several external softwares listed above.
 
 The locations of these softwares need to be informed to MuSTA either by exporting paths or by specifying appropriate optional arguments.
 
 
 ### Exporting paths
 
-If you export all the paths so that MuSTA can simply call them with their basenames, you need not to write these paths to your config file.
+If you export all the paths so that MuSTA can simply use them with their basenames, you need not to write these paths to your config file.
 
 MuSTA uses `bash` for calling external softwares, so the export should be done in the `bash` environment.
 
