@@ -19,8 +19,8 @@ It was originally developed and optimized for IsoSeq cluster or polished reads (
 
 For further information, please see `our article <https://doi.org/10.1101/2020.07.15.199851>`_.
 
-Usage
-=====
+Arguments
+=========
 
 Usage is written in `another section <usage.html>`_.
 

@@ -152,7 +152,7 @@ knitr::kable(read.table("test/test_output/result/musta.salmon.tpm.txt", header =
 | PB.4.2 |  9.017369e+05|  895049.5241|  509503.73825|  9.410712e+05|
 
 You can conduct downstream analyses to investigate differentially
-expressed gene, differentially transcript usage and so on. Most of the
+expressed gene, differential transcript usage and so on. Most of the
 popular packages such as {DESeq2}, {DEXSeq}, and {SUPPA2} are available
 by setting the assembled transcriptome as reference. Some users might
 find [tappas](https://app.tappas.org/) is useful for these purposes if
