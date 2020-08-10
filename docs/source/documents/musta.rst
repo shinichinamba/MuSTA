@@ -178,4 +178,4 @@ Citation
 
 If you feel this pipeline (or related codes) is useful, please cite:
 
-S Namba *et al*. Multi-sample Full-length Transcriptome Analysis of 22 Breast Cancer Clinical Specimens with Long-Read Sequencing. ***BioRxiv*** (2020) https://doi.org/10.1101/2020.07.15.199851
+S Namba *et al*. Multi-sample Full-length Transcriptome Analysis of 22 Breast Cancer Clinical Specimens with Long-Read Sequencing. **BioRxiv** (2020) https://doi.org/10.1101/2020.07.15.199851

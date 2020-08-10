@@ -6,6 +6,9 @@ This is a pipeline and associated R codes which take long-read isoform sequencin
 
 You can see the documents and the quick-start guides at https://musta.readthedocs.io.
 
+A long-read transcriptome simlator, simlady, can be found at https://github.com/shinichinamba/simlady.
+
+
 ## Usage
 
 `./MuSTA.R --help`
