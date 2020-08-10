@@ -78,5 +78,6 @@ Usage
       --force               Re-run the entire pipeline, rather than resuming from
                             the suspended point of the last run.
       --verbose             Verbose mode
+
       --dry-run             Check the provided arguments but not run subprocesses.
                             All reports will be created in the current directory
