@@ -29,7 +29,11 @@ variant <-
   paf %>% 
   mutate(sample = placeholder) %>% 
   split_df(n_worker) %>% 
-  future_map_dfr(isocan::convert_paf_variant, sample_name = placeholder)
+  future_map_dfr(~ {
+    suppressPackageStartupMessages(pkgload::load_all(isocan, export_all = FALSE, quiet = TRUE))
+    isocan::convert_paf_variant(..1, sample_name = placeholder)
+  })
+
 message("extract gtf")
 gtf <- 
   paf %>% 

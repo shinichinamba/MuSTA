@@ -3,20 +3,19 @@ drake_txt <- ''
 plan_add(
   TRUE, 
   '#in "()", write direct dependencies. They will not be used actually.
-  input = file_in(IO_summary_file),
-  BSgenome = pl_BSgenome(input),
+  BSgenome = pl_BSgenome(),
 ')
 
 plan_add(
   args$copy_input,
   '#copy
-  cp_1 = pl_cp_1(input),
-  cp_2 = pl_cp_2(input),
+  cp_1 = pl_cp_1(),
+  cp_2 = pl_cp_2(),
 ')
 
 plan_add(
   args$copy_input && args$use_lq,
-  '  cp_lq = pl_cp_lq(input),
+  '  cp_lq = pl_cp_lq(),
 ')
 
 plan_add(
@@ -29,7 +28,7 @@ plan_add(
     {lq_opt}
     cleanup_interleave = pl_cleanup_interleave({dep2}),
     ', 
-    dep = if (args$copy_input) 'c(cp_1, cp_2)' else 'input',
+    dep = if (args$copy_input) 'c(cp_1, cp_2)' else '',
     lq_opt = if (args$use_lq) {
       if (args$copy_input) 'lordec_lq = pl_lordec_lq(c(lordec_build, lordec_hq, cp_lq)),'
       else 'lordec_lq = pl_lordec_lq(c(lordec_build, lordec_hq)),'
@@ -40,8 +39,8 @@ plan_add(
     lordec_hq = pl_fq2fa_hq({dep}), #.gz is allowed in both input/output
     {lq_opt}
     ',
-    dep = if (args$copy_input) 'c(cp_1, cp_2)' else 'input',
-    lq_opt = if (args$use_lq) str_glue('lordec_lq = pl_fq2fa_lq({dep}),', dep = if (args$copy_input) "cp_lq" else "input") else ''),
+    dep = if (args$copy_input) 'c(cp_1, cp_2)' else '',
+    lq_opt = if (args$use_lq) str_glue('lordec_lq = pl_fq2fa_lq({dep}),', dep = if (args$copy_input) "cp_lq" else "") else ''),
 )
 
 plan_add(
@@ -64,7 +63,7 @@ plan_add(
 plan_add(
   TRUE,
   '#minimap2
-  minimap2_make_mmi = pl_minimap2_make_mmi(input),
+  minimap2_make_mmi = pl_minimap2_make_mmi(),
   minimap2_hq_paf = pl_minimap2_hq_paf(c(lordec_hq, minimap2_make_mmi)),
   minimap2_hq_sam = pl_minimap2_hq_sam(c(lordec_hq, minimap2_make_mmi)),
 ')

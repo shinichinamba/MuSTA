@@ -1,0 +1,10 @@
+*.Rd
+*.Rproj
+jobwatch.Rd
+parallel_option.Rd
+qreport_tbl.Rd
+qreport_xml.Rd
+qsub.Rd
+save_and_qsub.Rd
+write_and_qrecall.Rd
+write_and_qsub.Rd

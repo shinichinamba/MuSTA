@@ -1,0 +1,31 @@
+Package: isocan
+Type: Package
+Title: Isoform Manipulation and Linkage
+Version: 0.0.0.9003
+Authors@R: person("Shinichi", "Namba", email = "sinnhazime@gmail.com", role = c("aut", "cre"))
+Description: Tools for long-read processing.
+    However, it contains limited number of functions for now.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    methods,
+    rlang,
+    magrittr,
+    readr,
+    tidyr,
+    purrr,
+    pacman,
+    S4Vectors,
+    GenomicFeatures,
+    rtracklayer
+Depends: R (>= 3.5.0),
+    dplyr,
+    stringr
+Suggests: knitr,
+    rmarkdown,
+    testthat,
+    GenomicRanges,
+    furrr
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1
