@@ -1,0 +1,130 @@
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+jobwatcher
+==========
+
+Human Genome Center(HGC)スパコンおよびその基となるUniva Grid
+Engine(UGE)のコマンドをRから実行するRパッケージです(非公式). 
+{tidyverse}パッケージをベースにしており,
+結果を*tibble*形式で得ることができます.  また,
+`watch`関数を使えば`qsub`および`qrecall`したジョブを監視し,
+予期しないエラーが出た場合は`qsub`ないし`qrecall`し直すことができます. 
+{drake}パッケージをインストールすることでHuman Genome
+Center(HGC)スパコンでのパイプライン構築に使うことができます.
+
+Install
+-------
+
+インストールには, 次のコマンドを実行してください.
+
+``` r
+if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools")
+devtools::install_github("drres/jobwatcher")
+library(jobwatcher)
+```
+
+Main functions
+--------------
+
+### support functions
+
+現在, `qsub`, `qrecall`, `qreport`, `qacct`,
+`qstat`関数をサポートしています.  実行環境がHuman Genome
+Center(HGC)スパコンまたはUniva Grid
+Engine(UGE)かどうかを内部で判定しており, 環境によって挙動が異なります. 
+`qsub`および`qrecall`関数はUGE環境でなくとも使うことができます.
+その場合, `qsub`は指定したファイルを`system`関数を用いてshで実行します.
+(もし一行目冒頭に\#!が記述されている実行可能ファイルであった場合はbashを介さず直接実行します.)
+また, `qrecall`はHGC環境以外ではアクティブな変更を何も加えません.
+
+| functions | HGC        | UGE         | Other                     |
+|:----------|:-----------|:------------|:--------------------------|
+| qsub      | qsub       | qsub        | send commands to terminal |
+| qrecall   | qrecall    | (no effect) | (no effect)               |
+| qreport   | qreport    | (error)     | (error)                   |
+| qacct     | qreport -c | qacct       | (error)                   |
+| qstat     | qstat      | qstat       | (error)                   |
+
+現在の実行環境がどのように判定されたかを確認するには,
+これらの関数を1度でも実行した後に`options(jobwatcher.mode)`を実行してください.
+
+### watch
+
+`watch`関数は`qsub`および`qrecall`したジョブを監視し,
+予期しないエラーが出た場合は指定したファイルを`qsub`ないし`qrecall`し直す関数です. 
+監視には`qreport`コマンドを利用しているため,
+ジョブの結果を取得するまでに実際のジョブの終了から数分程度の遅れが生じる可能性があります. 
+現在はHGC環境でのみ動作します.
+
+また, `qsub`および`qrecall`関数には*watch*引数をとることができ,
+TRUEにすることで`watch`関数を明示的に使わずとも`qsub`ないし`qrecall`したジョブを監視することができます. 
+`qsub`関数をUGE環境でなく使用した場合,
+`watch = TRUE`の指定は`system`関数で`wait = TRUE`とすることに相当します.
+
+### qsub用のファイルを書く
+
+`make_qsubfile`を使用することで,
+qsub用に適したリソースの指定を手軽に行えるようになります. 
+(SHIROKANE5への移行により,`#$ -l os7`などのOS指定が追加で必要になる場合が出てきました.
+残念ながら専用の引数を用意していないため,
+`other_req = "#$ -l os7"`または`first_line = paste(binbash(), "\n#$ -l os7")`などのように指定してください.)
+
+また,
+`write_qsubfile`を使用すればスクリプトファイルのパスに書き込み時刻を含めることができます. 
+パイプライン中でよく似たファイルを自動で複製作成する場合などに,
+それぞれのファイル名を(ほぼ)一意にすることに使えます.
+
+Build a pipeline
+----------------
+
+`qsub_function`関数は`qsub`を行う関数を作成する関数です. 
+作成された関数を実行することでパイプラインの各`qsub`操作を行うことができます. 
+パイプライン作成部分は{drake}パッケージベースです.
+{drake}パッケージの日本語での説明は[こちらの匿名技術者集団の解説](https://blog.hoxo-m.com/entry/2018/09/05/184425)がわかりやすいです.
+  {drake}パッケージはパイプラインを関数ベースで記述するため,
+`qsub_function`を使ってパイプラインを構築していきます. 
+簡単な構築例は`build_pipeline`関数で得ることができます. 
+適宜編集してお使いください.
+
+``` r
+build_pipeline("your_pipeline_name", "~/your_pipeline_path")
+#> ✔ Directory '~/your_pipeline_path' has been created.
+#> 
+#> ✔ Directory '~/your_pipeline_path/log' has been created.
+#> 
+#> ✔ Directory '~/your_pipeline_path/script' has been created.
+#> 
+#> ✔ Directory '~/your_pipeline_path/config' has been created.
+#> 
+#> ✔ File '~/your_pipeline_path/your_pipeline_name.sh' has been written.
+#> 
+#> ✔ File '~/your_pipeline_path/your_pipeline_name.R' has been written.
+#> 
+#> ● Please edit '~/your_pipeline_path/your_pipeline_name.R' for your own pipeline.
+#> 
+#> ● Then, run qsub ~/your_pipeline_path/your_pipeline_name.sh
+#> 
+```
+
+`qsub_function`で作成される関数は動作に影響を与えないダミー変数を引数にとります. 
+ここにパイプラインの他の操作を記入することで,
+{drake}の機能のおかげで記入された操作がすべて完了してからその操作が実行されるようになります.
+
+上述の通り`qsub`および`qrecall`関数はUGE環境でなくとも使うことができるため,
+`#$`によるリソースの指定はできませんが,
+デスクトップ環境でも構築したパイプラインを動かすことができます. 
+パイプラインをデスクトップ環境で構築・テストし,
+UGE環境にpushするといった使い方が可能です.
+
+Updates
+-------
+
+### 0.0.8.900X (0.1.0 preview)
+
+-   関数名をラップ元の関数名と一致させた
+-   `qacct`, `qstat`関数を追加
+-   HGC環境以外でも動作するように変更
+-   仮引数が引数で指定可能な値の一覧となるよう仮引数を変更
+
+### 0.0.1
+
+-   パッケージ公開
