@@ -1,6 +1,6 @@
 required_packages_cran <- 
   c("rlang", "dplyr", "tidyr", "stringi", "stringr", "purrr", "future", "furrr", "ggplot2",
-    "remotes", "pkgload", "config", "fs", "drake", "argparse")
+    "remotes", "pkgload", "config", "fs", "drake", "argparse", "clisymbols")
 required_packages_bioc <- 
   c("BSgenome", "Biostrings", "rtracklayer", "GenomicRanges", "GenomicFeatures")
 

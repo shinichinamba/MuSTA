@@ -207,7 +207,10 @@ message("gather exon")
 gtf_nested_sample <-
   gtf_sample %>% 
   split_df_group(n_worker, "index") %>%
-  future_map_dfr(isocan::gather_exon) %>% 
+  future_map_dfr(~ {
+    suppressPackageStartupMessages(pkgload::load_all(isocan, export_all = FALSE, quiet = TRUE))
+    isocan::gather_exon(..1)
+  })
   isocan::separate_ends()
 message("separate multi/mono")
 gtf_nested_multi_sample <- gtf_nested_sample %>% dplyr::filter(exon_structure != "-")
