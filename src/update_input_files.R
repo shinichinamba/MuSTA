@@ -28,8 +28,8 @@ if (args$no_lordec == FALSE) {
     )
 } else {
   input_files <- input_files %>%
-    mutate(lordec_hq = long_copy_hq, # TODO fastq2fasta
-           lordec_lq = long_copy_lq  # TODO fastq2fasta
+    mutate(lordec_hq = path(sample_dir, "hq.nolordec.fa"), # TODO fastq2fasta
+           lordec_lq = path(sample_dir, "lq.nolordec.fa")  # TODO fastq2fasta
     )
 }
 
