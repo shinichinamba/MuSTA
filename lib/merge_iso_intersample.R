@@ -210,7 +210,7 @@ gtf_nested_sample <-
   future_map_dfr(~ {
     suppressPackageStartupMessages(pkgload::load_all(isocan, export_all = FALSE, quiet = TRUE))
     isocan::gather_exon(..1)
-  })
+  }) %>% 
   isocan::separate_ends()
 message("separate multi/mono")
 gtf_nested_multi_sample <- gtf_nested_sample %>% dplyr::filter(exon_structure != "-")

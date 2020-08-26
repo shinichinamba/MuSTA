@@ -7,7 +7,7 @@ group_input <- parser$add_argument_group('INPUT')
 
 group_input$add_argument(
   '-i', '--input', required = TRUE,
-  help = 'An comma-separated file describing paths to input files'
+  help = 'An comma-separated file describing paths to input files. This file should contain at least four headers: "sample", "long_read_hq", "short_read_1", "short_read_2". Four headers can be additionally specified: "cluster_report", "long_read_lq", "SJ", "mutation", "sv".'
 )
 
 group_input$add_argument(
