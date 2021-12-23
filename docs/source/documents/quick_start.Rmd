@@ -59,7 +59,8 @@ You can apply MuSTA to a test data by
   --input test/input.csv \
   --gtf test/reference/test.ref.gtf \
   --genome test/reference/chr16_18_head.fa \
-  --output test/test_output
+  --output test/test_output \
+  --force
 ```
 
 This command creates a directory named ‘test/test_output’ containing 8 sub-directories

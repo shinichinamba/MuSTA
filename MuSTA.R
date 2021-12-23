@@ -131,7 +131,8 @@ g$layers <- map(g$layers, ~ {if (is(.x[["geom"]], "GeomText")) .x[["aes_params"]
 ggsave(if (!args$dry_run) path(dir$report, "plan_pre_run.pdf") else "plan_pre_run.pdf", g, width = 20, height = 30, units = "cm")
 
 ####check file existence####
-qrecall_files <- c(input_files$long_read_hq, input_files$short_read_1, input_files$short_read_2, ref_gtf, genome_fa)
+qrecall_files <- c(input_files$long_read_hq, ref_gtf, genome_fa)
+if (!args$no_short_read) qrecall_files <- c(qrecall_files, input_files$short_read_1, input_files$short_read_2)
 if (args$use_lq) qrecall_files <- c(qrecall_files, input_files$long_read_lq)
 not_exist_files <- qrecall_files[!fs::file_exists(qrecall_files)]
 if (length(not_exist_files) > 0L) abort(paste0("These files are not found: ", str_c(not_exist_files, collapse = ", ")), "requirement error")
@@ -157,7 +158,7 @@ if (args$dry_run) {
 # }
 
 ####run pipeline####
-future::plan(future::multiprocess, workers = args$thread)
+future::plan(future::multicore, workers = args$thread)
 
 make(df_plan, jobs = args$thread, parallelism = "future", prework = load_jobwatcher_chr)
 

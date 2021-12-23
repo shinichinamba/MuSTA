@@ -58,11 +58,17 @@ pl_BSgenome <-
   )
 
 ####Copy####
+pl_cp_hq <-  #copy
+  qsub_template(
+    script_path = "cp_hq",
+    directory = directory_option(out = dir_logs[["file_management"]]),
+    str_c("cp", input_files$long_read_hq, input_files$long_copy_hq, sep = " ", collapse = "\n")
+  )
+
 pl_cp_1 <-  #copy
   qsub_template(
     script_path = "cp_1",
     directory = directory_option(out = dir_logs[["file_management"]]),
-    str_c("cp", input_files$long_read_hq, input_files$long_copy_hq, sep = " ", collapse = "\n"),
     str_c("cp", input_files$short_read_1, input_files$short_copy_1, sep = " ", collapse = "\n")
   )
 
@@ -75,7 +81,7 @@ pl_cp_2 <-  #copy
 
 pl_cp_lq <-  #copy
   qsub_template(
-    script_path = "cp_2",
+    script_path = "cp_lq",
     directory = directory_option(out = dir_logs[["file_management"]]),
     str_c("cp", input_files$long_read_lq, input_files$long_copy_lq, sep = " ", collapse = "\n"),
   )
@@ -86,7 +92,7 @@ pl_interleave <-
     arrayjob = ary,
     script_path = "interleave",
     directory = directory_option(out = dir_logs[["interleave"]]),
-    paste0(lib$interleave_fastq, " ${short_copy_1[", SGE_TASK_ID, "]} ${short_copy_2[", SGE_TASK_ID, "]} > ${interleave[", SGE_TASK_ID, "]}")
+    paste0("python2 ", lib$interleave, " ${short_copy_1[", SGE_TASK_ID, "]} ${short_copy_2[", SGE_TASK_ID, "]} > ${interleave[", SGE_TASK_ID, "]}")
   )
 
 ####LoRDEC####
@@ -134,7 +140,7 @@ pl_fq2fa_hq <-
     arrayjob = ary,
     script_path = "fq2fa_hq",
     directory = directory_option(out = dir_logs[["file_management"]]),
-    paste0(soft$seqkit, " fq2fa ${long_copy_hq[", SGE_TASK_ID, "]} > ${lordec_hq[", SGE_TASK_ID, "]}")
+    paste0("python2 ", lib$fq2fa, " ${long_copy_hq[", SGE_TASK_ID, "]} > ${lordec_hq[", SGE_TASK_ID, "]}")
   )
 
 pl_fq2fa_lq <- 
@@ -142,7 +148,7 @@ pl_fq2fa_lq <-
     arrayjob = ary,
     script_path = "fq2fa_lq",
     directory = directory_option(out = dir_logs[["file_management"]]),
-    paste0(soft$seqkit, " fq2fa ${long_copy_lq[", SGE_TASK_ID, "]} > ${lordec_lq[", SGE_TASK_ID, "]}")
+    paste0("python2 ", lib$fq2fa, " ${long_copy_lq[", SGE_TASK_ID, "]} > ${lordec_lq[", SGE_TASK_ID, "]}")
   )
 
 ####Minimap2####
@@ -379,7 +385,7 @@ pl_sqanti <-
     "echo '=====SQANTI QC====='",
     "echo '=====SQANTI QC=====' 1>&2",
     str_c(soft$sqanti_qc.py, "-g",#gtf
-          "-e", file$salmon_tpm_pre_sqanti, #exp. matrix
+          ifelse(args$no_short_read, "", paste0("-e ", file$salmon_tpm_pre_sqanti)), #exp. matrix
           "-d", dir$merge, "-o", sqanti_prefix, #${out_dir}/${prefix}_classification.txt will be generated.
           ifelse(!is.null(input_files$SJ) && !any(is.na(input_files$SJ)), paste0("-c ", str_c(input_files$SJ, collapse = ",")), ""), #comma_separated list of SJ.out.tab
           "-fl", str_c(input_files$fl_count, collapse = ","), #comma_separated list of FL file
@@ -464,7 +470,7 @@ pl_re_sqanti_qc <-
     script_path = "re_sqanti_qc",
     directory = directory_option(out = dir_logs[["sqanti"]]),
     str_c(soft$sqanti_qc.py, "-g",#gtf
-          "-e", file$salmon_tpm_post_sqanti, #exp. matrix
+          ifelse(args$no_short_read, "", paste0("-e ", file$salmon_tpm_post_sqanti)), #exp. matrix
           "-d", dir$merge, "-o", re_sqanti_prefix, #${out_dir}/${prefix}_classification.txt will be generated.
           ifelse(!is.null(input_files$SJ) && !any(is.na(input_files$SJ)), paste0("-c ", str_c(input_files$SJ, collapse = ",")), ""), #comma_separated list of SJ.out.tab
           "-fl", str_c(input_files$fl_count, collapse = ","), #comma_separated list of FL file

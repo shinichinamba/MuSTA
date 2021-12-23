@@ -38,7 +38,6 @@ However, the MuSTA pipeline utilizes several external softwares, and you need to
 |  minimap2   |  [https://github.com/lh3/minimap2](https://github.com/lh3/minimap2)  |
 |  SQANTI     |  [https://github.com/ConesaLab/SQANTI](https://github.com/ConesaLab/SQANTI)  |
 |  LoRDEC (optional)  |  [https://gite.lirmm.fr/lordec/lordec-releases/-/wikis/home](https://gite.lirmm.fr/lordec/lordec-releases/-/wikis/home)  |
-|  seqkit (optional)  |  [https://bioinf.shenwei.me/seqkit/](https://bioinf.shenwei.me/seqkit/)  |
 
 
 

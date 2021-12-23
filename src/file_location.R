@@ -15,7 +15,8 @@ lib <- list()
 lib$isocan <- "lib/isocan"
 lib$jobwatcher <- "lib/jobwatcher"
 ##imported
-lib$interleave_fastq <- "lib/interleave-fastq/interleave-fastq"
+lib$interleave <- "lib/interleave2fa.py"
+lib$fq2fa <- "lib/fq2fa.py"
 
 #sub-processes
 ##minimap2

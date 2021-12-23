@@ -31,7 +31,7 @@ suppressPackageStartupMessages({
   pkgname <- fs::path_file(genome_pkg)
   genome <- eval(parse(text = paste0(pkgname, "::", pkgname)))
 })
-plan(multiprocess, workers = n_worker)
+plan(multicore, workers = n_worker)
 
 
 
