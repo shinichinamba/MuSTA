@@ -15,7 +15,7 @@ suppressPackageStartupMessages({
   library(purrr)
   library(furrr)
 })
-plan(multiprocess, workers = workers)
+plan(multicore, workers = workers)
 
 #fastq length stats:
 #seqkit stats */long*.fastq -t dna -j 1 -a -T > length_report.txt
@@ -75,7 +75,7 @@ number_report_samples <-
     minimap2_lq_paf = input_files[["minimap2_lq_paf"]] %>% null_if_null(count_paf_unique),
     qfilt_hq_paf = input_files[["qfilt_hq_paf"]] %>% count_paf_unique(),
     qfilt_lq_paf = input_files[["qfilt_lq_paf"]] %>% null_if_null(count_paf_unique),
-    intra_merge = input_files[["intra_merge_gtf"]] %>% count_gtf_unique(),
+    intra_merge = input_files[["intra_merge_gtf"]] %>% count_gtf_unique()
     )
 
 #main 2

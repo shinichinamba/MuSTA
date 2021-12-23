@@ -5,18 +5,28 @@ if (args$copy_input == TRUE) {
   input_files <- input_files %>%
     mutate(
       long_copy_hq = path(sample_dir, "long_hq.fastq"),
-      long_copy_lq = path(sample_dir, "long_lq.fastq"),
-      short_copy_1 = path(sample_dir, "short_1.fastq"),
-      short_copy_2 = path(sample_dir, "short_2.fastq")
+      long_copy_lq = path(sample_dir, "long_lq.fastq")
     )
+  if (args$no_short_read == FALSE) {
+    input_files <- input_files %>%
+      mutate(
+        short_copy_1 = path(sample_dir, "short_1.fastq"),
+        short_copy_2 = path(sample_dir, "short_2.fastq")
+      )
+  }
 } else {
   input_files <- input_files %>%
     mutate(
       long_copy_hq = long_read_hq,
-      long_copy_lq = long_read_lq,
-      short_copy_1 = short_read_1,
-      short_copy_2 = short_read_2
+      long_copy_lq = long_read_lq
     )
+  if (args$no_short_read == FALSE) {
+    input_files <- input_files %>%
+      mutate(
+        short_copy_1 = short_read_1,
+        short_copy_2 = short_read_2
+      )
+  }
 }
 
 if (args$no_lordec == FALSE) {
@@ -28,8 +38,8 @@ if (args$no_lordec == FALSE) {
     )
 } else {
   input_files <- input_files %>%
-    mutate(lordec_hq = path(sample_dir, "hq.nolordec.fa"), # TODO fastq2fasta
-           lordec_lq = path(sample_dir, "lq.nolordec.fa")  # TODO fastq2fasta
+    mutate(lordec_hq = path(sample_dir, "hq.nolordec.fa"), 
+           lordec_lq = path(sample_dir, "lq.nolordec.fa")  
     )
 }
 
@@ -51,11 +61,20 @@ input_files <- input_files %>%
          intra_merge_gtf = path(sample_dir, "intra_merge.gtf"),
          intra_merge_corr = path(sample_dir, "intra_merge.correlation.txt"),
          variant_local = path(sample_dir, "variant.txt"),
-         fl_count = path(sample_dir, "fl_count.txt"),
-         salmon_exp_pre_sqanti = path(sample_dir, salmon_dirname$pre_sqanti, "quant.sf"),
-         salmon_exp_post_sqanti = path(sample_dir, salmon_dirname$post_sqanti, "quant.sf"),
-         salmon_exp_ref = path(sample_dir, salmon_dirname$ref, "quant.sf")
+         fl_count = path(sample_dir, "fl_count.txt")
   )
+
+if (args$no_short_read == FALSE) {
+  input_files <- input_files %>%
+    mutate(
+      salmon_exp_pre_sqanti = path(sample_dir, salmon_dirname$pre_sqanti, "quant.sf"),
+      salmon_exp_post_sqanti = path(sample_dir, salmon_dirname$post_sqanti, "quant.sf")
+    )
+  if (args$salmon_ref) {
+    input_files <- input_files %>%
+      mutate(salmon_exp_ref = path(sample_dir, salmon_dirname$ref, "quant.sf"))
+  }
+}
 
 if (!args$use_lq) {
   input_files <- input_files %>%

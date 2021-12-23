@@ -1,0 +1,5 @@
+sample, long_read_hq, cluster_report
+sample1, test/long_read/polished_01.fasta, test/long_read/polished_01.cluster_report.csv
+sample2, test/long_read/polished_02.fasta, test/long_read/polished_02.cluster_report.csv
+sample3, test/long_read/polished_03.fasta, test/long_read/polished_03.cluster_report.csv
+sample4, test/long_read/polished_04.fasta, test/long_read/polished_04.cluster_report.csv

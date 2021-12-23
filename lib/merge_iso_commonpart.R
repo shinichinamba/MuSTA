@@ -11,7 +11,7 @@ suppressPackageStartupMessages({
   pkgload::load_all(isocan, export_all = FALSE)
 })
 
-plan(multiprocess, workers = n_worker)
+plan(multicore, workers = n_worker)
 options(future.globals.maxSize = 3000L * (1024L^2L)) #allow 3GB. for intermerge
 
 

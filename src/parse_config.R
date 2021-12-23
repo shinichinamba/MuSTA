@@ -4,12 +4,12 @@ mut_sv_mode <- "genomon" #TODO VCF or Genomon
 ####software####
 softwares <- 
   c("sqanti_filter.py", "sqanti_qc.py", "lordec-build-SR-graph", "lordec-correct", 
-    "minimap2", "samtools", "salmon", "seqkit")
+    "minimap2", "samtools", "salmon")
 software_path_argnames <- 
   c("sqanti_filter", "sqanti_qc", "lordec_build_SR_graph", "lordec_correct", 
-    "minimap2", "samtools", "salmon", "seqkit")
+    "minimap2", "samtools", "salmon")
 soft_ver_comm <- 
-  c("-v", "-v", "", "", "--version", "--version", "--version", "version")
+  c("-v", "-v", "", "", "--version", "--version", "--version")
 soft_ver_parse_fun <- 
   list(
     (function(x) str_remove(x, "^SQANTI ")),
@@ -18,8 +18,7 @@ soft_ver_parse_fun <-
     (function(x) str_remove(x, "^LoRDEC v")),
     (function(x) x),
     (function(x) str_remove(x, "^samtools ")),
-    (function(x) str_remove(x, "^salmon ")),
-    (function(x) str_remove(x, "^seqkit v"))
+    (function(x) str_remove(x, "^salmon "))
   )
 soft_names <- softwares %>% str_to_lower() %>% str_replace_all("-", "_")
 stopifnot(length(softwares) == length(soft_ver_comm))
@@ -79,5 +78,9 @@ if (length(dup_sample_id) > 0L) {
   abort(paste0("All sample identifiers in the input csv file must be unique: ", str_c(dup_sample_id, collapse = ", ")), "requirement error")
 }
 
-walk2(c("long_read_hq", "short_read_1", "short_read_2", "cluster_report", "SJ"), c(FALSE, FALSE, FALSE, TRUE, TRUE), check_no_na)
+if (!args$no_lordec) {
+  walk2(c("long_read_hq", "short_read_1", "short_read_2", "cluster_report", "SJ"), c(FALSE, FALSE, FALSE, TRUE, TRUE), check_no_na)
+} else {
+  walk2(c("long_read_hq", "cluster_report", "SJ"), c(FALSE, TRUE, TRUE), check_no_na)
+}
 if (args$use_lq) check_no_na("long_read_lq")

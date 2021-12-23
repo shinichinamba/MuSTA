@@ -48,8 +48,14 @@ group_configulation$add_argument(
 
 group_configulation$add_argument(
   '--no-lordec', action = "store_true",
-  help = 'NOT run LoRDEC in order to correct long-read sequences with RNA-seq reads'
+  help = 'Do NOT run LoRDEC in order to correct long-read sequences with RNA-seq reads'
 )
+
+group_configulation$add_argument(
+  '--no-short-read', action = "store_true",
+  help = 'Use only long-read reads and do NOT use short-read RNA-seq reads. LoRDEC and salmon will be skipped.'
+)
+
 
 group_configulation$add_argument(
   '--use-lq', action = "store_true",
@@ -110,7 +116,7 @@ group_ext$add_argument(
 )
 group_ext$add_argument(
   '--seqkit', default = 'seqkit',
-  help = 'Path to {seqkit}. This option is need not to be specified unless you specify the {--no-lordec} option and do not export {seqkit} in the Bash environment'
+  help = '[Deprecated] MuSTA does not require seqkit any more.'
 )
 
 #### Miscellaneous ####
@@ -137,3 +143,7 @@ group_miscellaneous$add_argument(
 )
 
 args <- parser$parse_args()
+if (args$no_short_read) {
+  args$no_lordec <- TRUE
+  args$salmon_ref <- FALSE
+}

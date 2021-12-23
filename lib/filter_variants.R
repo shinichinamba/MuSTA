@@ -22,7 +22,7 @@ suppressPackageStartupMessages({
   pkgload::load_all(isocan, export_all = FALSE)
 })
 
-plan(multiprocess, workers = n_workers)
+plan(multicore, workers = n_workers)
 input_files <- read_csv(input_files, col_types = cols(.default = col_character()))
 correlation_result <- read_tsv(correlation_result, col_types = cols(.default = col_character()))
 
