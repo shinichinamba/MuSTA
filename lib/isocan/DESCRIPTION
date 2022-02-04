@@ -1,10 +1,9 @@
 Package: isocan
 Type: Package
 Title: Isoform Manipulation and Linkage
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: person("Shinichi", "Namba", email = "sinnhazime@gmail.com", role = c("aut", "cre"))
 Description: Tools for long-read processing.
-    However, it contains limited number of functions for now.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

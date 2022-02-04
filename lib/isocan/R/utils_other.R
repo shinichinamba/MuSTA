@@ -42,7 +42,21 @@ read_gtf_old <- function(file){
 }
 
 #' @export
-write_gtf <- function(x, path, rename_list = NULL, default = "."){
+#' @export
+write_gtf <- function(x, path, rename_list = NULL, default = ".") {
+  res <- try(write_gtf_default(x, path, rename_list, default))
+  if (is(res, "try-error")) {
+    warning("write_gtf() falled back to rtracklayer::export()")
+    x <- dplyr::rename(x, !!!rename_list)
+    y <- dplyr::rename(x, type = feature) 
+    y <- GenomicRanges::makeGRangesFromDataFrame(y)
+    rtracklayer::export(y, path, "gtf")
+  } # for unknown error in stringi...
+  invisible(x)
+}
+
+
+write_gtf_default <- function(x, path, rename_list = NULL, default = "."){
   stopifnot(!(is.null(default) || is.na(default)))
   # opt_scipen <- getOption("scipen")
   # options(scipen = 999L)
@@ -78,4 +92,5 @@ write_gtf <- function(x, path, rename_list = NULL, default = "."){
   # options(scipen = opt_scipen)
   invisible(x)
 }
+
 

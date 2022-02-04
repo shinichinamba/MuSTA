@@ -17,10 +17,15 @@ A long-read transcriptome simlator, simlady, can be found at https://github.com/
 
 If you feel this pipeline (or related codes) is useful, please cite:
 
-S Namba *et al*. Multi-sample Full-length Transcriptome Analysis of 22 Breast Cancer Clinical Specimens with Long-Read Sequencing. ***BioRxiv*** (2020) https://doi.org/10.1101/2020.07.15.199851
+S Namba *et al*. Transcript-targeted analysis reveals isoform alterations and double-hop fusions in breast cancer. ***communications biology*** (2021) https://www.nature.com/articles/s42003-021-02833-4
 
 
 ## Update
+
+### v0.0.4
+
+* Bug fixed
+
 
 ### v0.0.3
 

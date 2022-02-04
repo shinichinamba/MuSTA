@@ -51,7 +51,7 @@ get_gtf_unique <- function(path){
   suppressWarnings(
     readr::read_tsv(path,
                     col_names = c("attribute"),
-                    col_types = "________c")
+                    col_types = "________c", comment = "##")
   ) %>% 
     `[[`("attribute") %>% 
     n_distinct()
