@@ -3,11 +3,11 @@ send_command <- function(command, ID, ..., .hgc_mode = TRUE, .discard_std_error 
   dots <- c(...)
   dots <- dots[!purrr::map_lgl(dots, `==`, "")]
   dots_chr <- stringr::str_c(dots, collapse = " ")
-  
-  std_error_cmd <- if (.discard_std_error) "2> /dev/null" else character()
-  
+
+  std_error_cmd <- if (.discard_std_error) "2> /dev/null" else ""
+
   if (is.na(ID)) {
-    res <- 
+    res <-
       suppressWarnings(system(
         stringr::str_c(command, dots_chr, std_error_cmd, sep = " "),
         intern = TRUE
@@ -16,22 +16,22 @@ send_command <- function(command, ID, ..., .hgc_mode = TRUE, .discard_std_error 
     if (.hgc_mode) {
       if (!is_number(ID)) res <- ""
       else {
-        res <- 
+        res <-
           suppressWarnings(system(
             stringr::str_c(command, "-j", ID, dots_chr, std_error_cmd, sep = " "),
             intern = TRUE
           ))
       }
-      
+
       if (is.null(res) || length(res) == 0L || (length(res) == 1L && res == "")) {
-        res <- 
+        res <-
           suppressWarnings(system(
             stringr::str_c(command, "-N", ID, dots_chr, std_error_cmd, sep = " "),
             intern = TRUE
           ))
       }
     } else {# UGE
-      res <- 
+      res <-
         suppressWarnings(system(
           stringr::str_c(command, "-j", ID, dots_chr, std_error_cmd, sep = " "),
           intern = TRUE
@@ -46,8 +46,8 @@ make_option <- function(x, prefix)  ifelse(is.na(x), "", paste0(prefix, " ", x))
 ####xml2tbl####
 vacant_tbl <- function(colname){
   matrix(nrow = 0, ncol = length(colname)) %>%
-    as.data.frame() %>% 
-    `colnames<-`(colname) %>% 
+    as.data.frame() %>%
+    `colnames<-`(colname) %>%
     dplyr::as_tibble(.name_repair = "minimal") %>%
     dplyr::mutate_all(as.character)
 }
@@ -63,18 +63,18 @@ try_xml_to_tbl_internal <- function(xml, command) {
 
 try_xml_to_tbl <- function(xml, command = c("qreport", "qstat", "qacct")){
   assign_oneof_default_arg_chr("command")
-  tbl_colnames <- 
+  tbl_colnames <-
     switch(command,
-           "qreport" = 
+           "qreport" =
              c("JB_owner","JB_job_number",
                "taskid","slots","JB_pe_id","granted_pe",
                "exit_status","failed","queue_name","host_name",
                "JB_name","JAT_qsub_time","JAT_start_time","JAT_end_time",
                "ru_wallclock","cpu","memory","maxvmem","r_mem","r_q","r_cpu",
                "qdel","failed_txt","recommended_queue","recommended_memory","recommended_option"),
-           "qstat" = 
+           "qstat" =
              c("JB_job_number", "JAT_prio", "JB_name", "JB_owner", "state", "JAT_start_time", "queue_name", "slots", ".attrs"),
-           "qacct" = 
+           "qacct" =
              c("qname", "hostname", "group", "owner", "project", "department", "jobname", "jobnumber", "taskid",
                "account", "priority", "qsub_time", "start_time", "end_time", "granted_pe", "slots",
                "failed", "exit_status", "ru_wallclock", "ru_utime", "ru_stime", "ru_maxrss", "ru_ixrss", "ru_ismrss", "ru_idrss", "ru_isrss", "ru_minflt", "ru_majflt",
@@ -172,8 +172,8 @@ txt_to_tbl <- function(x) {
 
 
 #' get \emph{qacct} results
-#' 
-#' As for HGC super computer, \emph{qreport --compatible} is called internally. 
+#'
+#' As for HGC super computer, \emph{qreport --compatible} is called internally.
 #' Unlike \emph{qreport}, \emph{qacct} does NOT have an option to return results in xml format.
 #'
 #' @inheritParams qreport_xml
@@ -197,7 +197,7 @@ qstat_xml_txt <- function(ID = NA, user = NA, type) {
 }
 
 #' get \emph{qstat} results
-#' 
+#'
 #' @param ID Job ID or Job Name. (optional)
 #' @param user Your user ID. (optional)
 #' @param type result type.

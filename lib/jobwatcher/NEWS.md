@@ -1,5 +1,7 @@
 # jobwatcher 0.1.0
 
+* Dealing with the change of stringr::str_c and using as.character() instead of vctrs::cast(x, character())
+
 ## 0.0.5
 
 * *parallel_option()* do not generate -masterl or -masterq request any more when **master_memory** is not specified.

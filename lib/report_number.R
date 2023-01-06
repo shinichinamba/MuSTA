@@ -40,7 +40,8 @@ get_paf_unique <- function(path){
   suppressWarnings(
     readr::read_tsv(path,
                     col_names = c("seq_id"),
-                    col_types = "c_______________________")
+                    col_types = "c_______________________",
+                    comment = "##")
   ) %>% 
     `[[`("seq_id") %>% 
     n_distinct()

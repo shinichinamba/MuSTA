@@ -1,5 +1,5 @@
 #' make a file suitable for \emph{qsub}
-#' 
+#'
 #' @param ... Your codes (default: \emph{bash} codes). Each argument should be a character vector. Multiple arguments and multiple elements will be separated with a line break.
 #' @param name A character
 #' @param first_line A character. It is written in the first line.
@@ -18,7 +18,7 @@ make_qsubfile <- function(...,
                           arrayjob = arrayjob_option(),
                           directory = directory_option(),
                           use_bash_profile = FALSE,
-                          other_req = character(0)){#TODO docker file home directory check
+                          other_req = ""){#TODO docker file home directory check
   dots_parser(...) -> inputs
   list(name, first_line, parallel, arrayjob, directory, other_req) %>%
     purrr::walk(~ assertthat::assert_that(rlang::is_character(.x)))
@@ -36,7 +36,7 @@ make_qsubfile <- function(...,
 }
 
 #' write a qsub file
-#' 
+#'
 #' @param x Your qsub script.
 #' @param path A character. The path to write a file.
 #' @param recursive A logical. Whether make parent directory recursively when it does NOT exist.
@@ -60,7 +60,7 @@ write_qsubfile <- function(x, path, recursive, add_time) {
 }
 
 #' write out and \emph{qrecall}
-#' 
+#'
 #' @param ... Paths to recall. Each argument should be a character vector. Multiple arguments and multiple elements will be separated with a line break.
 #' @param path A character. The path to write a file for \emph{qrecall}. If path is a directory, prefix 'qrecall' will be added to the file name.
 #' @param log_path A character (optional). The path to write a stdout of \emph{qrecall}. Default: home directory.
@@ -80,7 +80,7 @@ write_and_qrecall <- function(..., path = fs::path_home(), log_path = NA_charact
 
 
 #' \emph{qsub} a file
-#' 
+#'
 #' @param path A character. The path to a \emph{qsub/qrecall} file.
 #' @param args A character. Additional arguments for \emph{qsub/qrecall}. Arguments written in the original file will be ignored.
 #' @param watch A logical.  Whether trace your \emph{qsub}bed/\emph{qrecall}ed job by using \code{\link{watch}}.
@@ -124,7 +124,7 @@ qsub <- function(path, args = NA, watch = FALSE, verbose = TRUE, ...){
 }
 
 #' \emph{qrecall} a file
-#' 
+#'
 #' @inheritParams qsub
 #' @return Invisible. A list of Job ID, the path you write your file to, and the time you execute this function.
 #' @export
@@ -135,7 +135,7 @@ qrecall <- function(path, args = NA, watch = FALSE, ...){
   args <- .as_character(args)
   args <- ifelse(is.na(args) || args == "", "", paste0(" ", args))
   time <- format(Sys.time(), "%Y%m%d%H%M")
-  
+
   if (get_jobwatcher_mode() != "hgc") {
     rlang::inform("This is not HGC environment. 'qrecall' command will be ignored.")
     res <- list(ID = NA_character_, path = path, time = time)

@@ -2,7 +2,7 @@ verify_scalar <- function(...) purrr::walk(list(...), ~ assertthat::assert_that(
 verify_no_na <- function(x) assertthat::assert_that(assertthat::noNA(x))
 verify_in <- function(x, y) assertthat::assert_that(all(x %in% y), msg = paste0(deparse(x), " is NOT included in ", deparse(y), "."))
 verify_file_exists <- function(x) assertthat::assert_that(fs::file_exists(x))
-  
+
 verify_path <- function(path, recursive) {
   if (recursive) {
     assertthat::assert_that(is.character(path))
@@ -19,7 +19,7 @@ verify_uge <- function() {
   assertthat::assert_that(get_jobwatcher_mode() %in% c("hgc", "uge"), msg = "This function works only in UGE environment.")
 }
 
-.as_character <- function(x) vctrs::vec_cast(x, character())
+.as_character <- function(x) as.character(x)
 .map_as_character <- function(...) {
   x <- rlang::list2(...)
   purrr::map(x, .as_character)

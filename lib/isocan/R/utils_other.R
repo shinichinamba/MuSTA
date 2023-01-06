@@ -42,7 +42,10 @@ read_gtf_old <- function(file){
 }
 
 #' @export
+<<<<<<< HEAD
 #' @export
+=======
+>>>>>>> eea902a (Dealing with the change of stringr::str_c and using as.character() instead of vctrs::cast(x, character()))
 write_gtf <- function(x, path, rename_list = NULL, default = ".") {
   res <- try(write_gtf_default(x, path, rename_list, default))
   if (is(res, "try-error")) {
@@ -55,7 +58,11 @@ write_gtf <- function(x, path, rename_list = NULL, default = ".") {
   invisible(x)
 }
 
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> eea902a (Dealing with the change of stringr::str_c and using as.character() instead of vctrs::cast(x, character()))
 write_gtf_default <- function(x, path, rename_list = NULL, default = "."){
   stopifnot(!(is.null(default) || is.na(default)))
   # opt_scipen <- getOption("scipen")
