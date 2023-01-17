@@ -13,6 +13,7 @@ read_gtf <- function(file) {
     mutate_if(is.factor, as.character) %>%
     select(-width) %>%
     rename(feature = "type", frame = "phase", seqname = "seqnames") %>%
+    mutate(score = as.character(score), frame = as.character(frame)) %>%
     tidyr::replace_na(list(score = ".", frame = ".")) -> gtf
   gtf %>% select(!!!syms(c(col_name, setdiff(colnames(gtf), col_name))))
 }
@@ -42,27 +43,18 @@ read_gtf_old <- function(file){
 }
 
 #' @export
-<<<<<<< HEAD
-#' @export
-=======
->>>>>>> eea902a (Dealing with the change of stringr::str_c and using as.character() instead of vctrs::cast(x, character()))
 write_gtf <- function(x, path, rename_list = NULL, default = ".") {
   res <- try(write_gtf_default(x, path, rename_list, default))
   if (is(res, "try-error")) {
     warning("write_gtf() falled back to rtracklayer::export()")
     x <- dplyr::rename(x, !!!rename_list)
-    y <- dplyr::rename(x, type = feature) 
+    y <- dplyr::rename(x, type = feature)
     y <- GenomicRanges::makeGRangesFromDataFrame(y)
     rtracklayer::export(y, path, "gtf")
   } # for unknown error in stringi...
   invisible(x)
 }
 
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> eea902a (Dealing with the change of stringr::str_c and using as.character() instead of vctrs::cast(x, character()))
 write_gtf_default <- function(x, path, rename_list = NULL, default = "."){
   stopifnot(!(is.null(default) || is.na(default)))
   # opt_scipen <- getOption("scipen")
