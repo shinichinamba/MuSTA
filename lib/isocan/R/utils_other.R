@@ -49,7 +49,7 @@ write_gtf <- function(x, path, rename_list = NULL, default = ".") {
     warning("write_gtf() falled back to rtracklayer::export()")
     x <- dplyr::rename(x, !!!rename_list)
     y <- dplyr::rename(x, type = feature)
-    y <- GenomicRanges::makeGRangesFromDataFrame(y)
+    y <- GenomicRanges::makeGRangesFromDataFrame(y, keep.extra.columns = TRUE)
     rtracklayer::export(y, path, "gtf")
   } # for unknown error in stringi...
   invisible(x)
